@@ -26,10 +26,7 @@ The project review will focus on the following points:
 
 GITHUB
 
-Client ID
-6c8f2423ee2e3e0b2688
-Client secrets
-ecae361306e98c080c756c1d54ebdb4937683460
+
 
 
 """
