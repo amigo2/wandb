@@ -13,5 +13,6 @@
     (venv) pip install -r requirements.txt
     '''
 ### 4. Create OAuth on GitHub
+### 5. Apply the migrations and create a superuser:
 ### 6. Register the providers in the Django admin.
 ### 7. Run the server:
