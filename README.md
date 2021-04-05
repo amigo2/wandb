@@ -4,11 +4,13 @@
 
 1. Fork/Clone
 2. Create Virtual enviroment and activate(windows)
+
     ''' python
     python -m venv venv 
     ./venv/Scripts/activate
     '''
 3. Install requirements.txt
+
     ''' python
     (venv) pip install -r requirements.txt
     '''
