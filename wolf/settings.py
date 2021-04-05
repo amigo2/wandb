@@ -54,20 +54,24 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "django.contrib.sites",  # new
+    "django.contrib.sites", 
+    #applications
+    "crudapp",
     # 3rd party
-    "allauth", # new
-    "allauth.account", # new
-    "allauth.socialaccount", # new
+    'widget_tweaks',
+    "allauth", 
+    "allauth.account", 
+    "allauth.socialaccount", 
     # social providers
-    "allauth.socialaccount.providers.github", # new
-    "allauth.socialaccount.providers.twitter", # new
+    "allauth.socialaccount.providers.github", 
+    
 ]
 
 MIDDLEWARE = [
