@@ -24,6 +24,13 @@ The project review will focus on the following points:
     - Coding standards
     - Ease of setup/running
 
+GITHUB
+
+Client ID
+6c8f2423ee2e3e0b2688
+Client secrets
+ecae361306e98c080c756c1d54ebdb4937683460
+
 
 """
 
@@ -50,14 +57,20 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'main',
-    'social_django', 
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "django.contrib.sites",  # new
+    # 3rd party
+    "allauth", # new
+    "allauth.account", # new
+    "allauth.socialaccount", # new
+    # social providers
+    "allauth.socialaccount.providers.github", # new
+    "allauth.socialaccount.providers.twitter", # new
 ]
 
 MIDDLEWARE = [
@@ -69,7 +82,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
-    'social_django.middleware.SocialAuthExceptionMiddleware',
+
 ]
 
 ROOT_URLCONF = 'wolf.urls'
@@ -77,7 +90,7 @@ ROOT_URLCONF = 'wolf.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        "DIRS": [str(BASE_DIR.joinpath("templates"))],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -85,23 +98,19 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-
-                'social_django.context_processors.backends',  # <--
-                'social_django.context_processors.login_redirect', # <--
             ],
         },
     },
 ]
 
 AUTHENTICATION_BACKENDS = (
-    'social_core.backends.github.GithubOAuth2',
-
-    'django.contrib.auth.backends.ModelBackend',
+    "allauth.account.auth_backends.AuthenticationBackend",
 )
 
-LOGIN_URL = 'login'
-LOGOUT_URL = 'logout'
-LOGIN_REDIRECT_URL = 'home'
+SITE_ID = 1
+ACCOUNT_EMAIL_VERIFICATION = "none"
+LOGIN_REDIRECT_URL = "home"
+ACCOUNT_LOGOUT_ON_GET = True
 
 
 WSGI_APPLICATION = 'wolf.wsgi.application'
@@ -155,3 +164,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
